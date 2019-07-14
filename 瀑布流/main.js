@@ -69,7 +69,7 @@ function waterFall(list) {
         } else {
             list[i].style.left = list[minIndex].offsetLeft + 'px'
         }
-        // list[i].style.transition = .3 + 's ease-out'
+        list[i].style.transition = .3 + 's ease-in'
         arr[minIndex] += itemHeight + detail.gapWidth
     }
     App.style.height = Math.max(...arr) + 'px'
@@ -80,7 +80,8 @@ let scroll = new BScroll(wrapper, {
         threshold: -40 // 在上拉到超过底部 20px 时，触发 pullingUp 事件
     },
     probeType: 1,
-    click: true
+    click: true,
+    scrollbar: true
 })
 scroll.on('pullingUp', function () {
     let self = this
